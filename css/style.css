@@ -1,3 +1,5 @@
 body {
     text-align: center;
+    /*background from http://www.xsjjys.com/513732789.html*/
+    background: url('../images/background.jpg') center/cover no-repeat fixed;
 }

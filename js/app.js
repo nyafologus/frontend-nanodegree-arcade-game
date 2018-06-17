@@ -96,14 +96,14 @@ class Player {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
             // Display victory message if game is won
             if (this.victory === true) {
-            ctx.font = '88px Georgia';
-            ctx.fillText('Oh,', 66, 210);
-            ctx.font = '66px Georgia';
-            ctx.fillText('lucky you!', 130, 280);
-            ctx.font = '16px Georgia';
-            ctx.fillText('Now go', 310, 420);
-            ctx.font = '16px Georgia';
-            ctx.fillText('hug a bug!', 325, 436);
+                ctx.font = '88px Georgia';
+                ctx.fillText('Oh,', 66, 210);
+                ctx.font = '66px Georgia';
+                ctx.fillText('lucky you!', 130, 280);
+                ctx.font = '16px Georgia';
+                ctx.fillText('Now go', 310, 420);
+                ctx.font = '16px Georgia';
+                ctx.fillText('hug a bug!', 325, 436);
             }
         };
 
