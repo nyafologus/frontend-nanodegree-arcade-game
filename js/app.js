@@ -80,7 +80,6 @@ class Player {
 
         // in case Player reaches the top of canvas, the game is won
         if (this.y < 0) {
-            setTimeout(() => {
                 // Player position defaults
                 this.x = 200;
                 this.y = 380;
@@ -90,10 +89,9 @@ class Player {
                 }
                 // Game is won
                 this.victory = true;
-                this.victory();
-            }, 200);
+                this.render();
+                }
             }
-        }
 
         // Display Player on the screen
         render() {
