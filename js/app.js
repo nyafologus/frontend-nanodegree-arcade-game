@@ -1,25 +1,53 @@
 // Enemies our player must avoid
-var Enemy = function() {
+class Enemy {
+    // Constructor function that initializes new Enemy objects
+    constructor(x, y, speed) {
+
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-};
+        this.sprite = 'images/enemy-bug.png';
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+        // Initial speed of Enemy
+        this.speed = speed;
+        //Initial position of Enemy on the x axis
+        this.x = x;
+        //Initial position of Enemy on the y axis
+        this.y = y;
+    }
+
+    // Update Enemy's position, required method for game
+    // Parameter: dt, a time delta between ticks
+    update(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x += this.speed * dt;
+
+    // once Enemy reaches right border of canvas (550), 
+    // reset its position to start again off canvas from left (-100)
+    if (this.x > 550) {
+        this.x = -100;
+        // this.speed = 100 + Math.floor(Math.random() * 512);
+    }
+
+    // collision detection, if distance in pixels is less than 60 on the x axis,
+    // or less than 13 on y axis, reset position of player to default
+    if (player.x - this.x <= 60 && player.y - this.y <= 13) {
+        player.x = 200;
+        player.y = 380;
+        }
+    }
+
+    // Draw Enemy on the screen, required method for game
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
 };
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
 
 // Now write your own player class
 // This class requires an update(), render() and
