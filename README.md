@@ -13,4 +13,4 @@ Images and a game loop engine were provided. The rest was built in app.js file b
 
 ![Arcade Game](images/screen-shot.png "Starting Arcade Game")
 
-##### Play with it [here](https://nyafologus.github.io/frontend-nanodegree-arcade-game/ "Beat the bugs!")!
+#### Play with it [here](https://nyafologus.github.io/arcade%20game/ "Beat the bugs!")!
