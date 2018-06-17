@@ -12,28 +12,27 @@ class Enemy {
 
         // Initial speed of Enemy
         this.speed = speed;
-        //Initial position of Enemy on the x axis
+        // Initial position of Enemy on the x axis
         this.x = x;
-        //Initial position of Enemy on the y axis
+        // Initial position of Enemy on the y axis
         this.y = y;
     }
 
     // Update Enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-    // You should multiply any movement by the dt parameter
+    // You should multiply any movement by the dt parameter,
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
 
-    // once Enemy reaches right border of canvas (550), 
+    // once the Enemy reaches right border of canvas (550), 
     // reset its position to start again off canvas from left (-100)
     if (this.x > 550) {
         this.x = -100;
-        // this.speed = 100 + Math.floor(Math.random() * 512);
     }
 
-    // collision detection, if distance in pixels is less than 60 on the x axis,
+    // Collision detection, if distance in pixels is less than 60 on the x axis,
     // or less than 13 on y axis, reset position of player to default
     if (player.x - this.x <= 60 && player.y - this.y <= 13) {
         player.x = 200;
@@ -47,7 +46,6 @@ class Enemy {
     }
 
 };
-
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -87,9 +85,9 @@ class Player {
                 for (const enemy of allEnemies) {
                     enemy.speed = 0;
                 }
-                // Game is won
-                this.victory = true;
-                this.render();
+                    // Game is won
+                    this.victory = true;
+                    this.render();
                 }
             }
 
@@ -126,7 +124,7 @@ class Player {
                     break;
                 // pressing the down arrow moves Player 80 pixels down on y axis
                 case 'down':
-                    this.update(this.y += 83);
+                    this.update(this.y += 80);
                     break;
                 }
         }
