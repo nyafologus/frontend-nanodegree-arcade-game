@@ -98,7 +98,7 @@ class Player {
         // Display Player on the screen
         render() {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        }
+        };
 
         // Display victory modal if game is won
         victory() {
@@ -135,8 +135,20 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+const allEnemies = [];
 
+// Initial position of Enemies on y axis
+const enemyPosition = [60, 140, 220];
+
+// Generating new enemy Objects with random speed
+enemyPosition.forEach(function(posY) {
+    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
+    allEnemies.push(enemy);
+});
+
+// Place the player object in a variable called player
+// Initialize it with default position
+const player = new Player(200, 380);
 
 
 // This listens for key presses and sends the keys to your
