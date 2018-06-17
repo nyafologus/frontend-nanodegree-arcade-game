@@ -118,7 +118,7 @@ class Player {
                     this.update(this.x -= 100);
                     break;
                 // right key press moves Player 100 pixels to the right
-                case 'left':
+                case 'right':
                     this.update(this.x += 100);
                     break;
                 // pressing the up arrow moves Player 80 pixels up on y axis
