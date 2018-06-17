@@ -137,14 +137,14 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 
-// Initial position of Enemies on y axis
-const enemyPosition = [60, 140, 220];
+// Setting initial Enemy location of Enemies on y axis
+let enemyLocation = [62, 145, 225];
 
 // Generating new enemy Objects with random speed
-enemyPosition.forEach(function(posY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
+for (const location of enemyLocation) {
+    enemy = new Enemy(-180, location, 100 + Math.floor(Math.random() * 200));
     allEnemies.push(enemy);
-});
+};
 
 // Place the player object in a variable called player
 // Initialize it with default position
