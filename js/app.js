@@ -55,8 +55,8 @@ class Player {
     constructor(x, y) {
         this.sprite = 'images/char-cat-girl.png';
         this.x = x;
-        this.y = y;
-        this.victory = false;
+        this.y = y
+;        this.victory = false;
     }
 
     // Preventing Player to move off canvas
@@ -112,19 +112,19 @@ class Player {
             switch (keyPress) {
                 // left key press moves Player 100 pixels to the left
                 case 'left':
-                    this.update(this.x -= 100);
+                    this.x -= 100;
                     break;
                 // right key press moves Player 100 pixels to the right
                 case 'right':
-                    this.update(this.x += 100);
+                    this.x += 100;
                     break;
                 // pressing the up arrow moves Player 80 pixels up on y axis
                 case 'up':
-                    this.update(this.y -= 80);
+                    this.y -= 80;
                     break;
                 // pressing the down arrow moves Player 80 pixels down on y axis
                 case 'down':
-                    this.update(this.y += 80);
+                    this.y += 80;
                     break;
                 }
         }
