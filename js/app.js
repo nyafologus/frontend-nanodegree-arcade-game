@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 class Enemy {
-    // Constructor function that initializes new Enemy objects
+    // Constructor function to initialize new Enemy objects
     constructor(x, y, speed) {
 
     // Variables applied to each of our instances go here,
@@ -52,7 +52,86 @@ class Enemy {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+class Player {
+    // Constructor function to initialze new Player objects
+    constructor(x, y) {
+        this.sprite = 'images/char-cat-girl.png';
+        this.x = x;
+        this.y = y;
+        this.victory = false;
+    }
 
+    // Preventing Player to move off canvas
+    update(x, y) {
+        // in case Player reaches the right side of canvas
+        if (this.x > 400) {
+            this.x = 400;
+        }
+
+        // in case Player reaches the left side of canvas
+        if (this.x < 0) {
+            this.x = 0;
+        }
+
+        // in case Player reaches the bottom of canvas
+        if (this.y > 400) {
+            this.y = 400;
+        }
+
+        // in case Player reaches the top of canvas, the game is won
+        if (this.y < 0) {
+            setTimeout(() => {
+                // Player position defaults
+                this.x = 200;
+                this.y = 380;
+                // Enemies freeze
+                for (const enemy of allEnemies) {
+                    enemy.speed = 0;
+                }
+                // Game is won
+                this.victory = true;
+                this.victory();
+            }, 200);
+            }
+        }
+
+        // Display Player on the screen
+        render() {
+            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        }
+
+        // Display victory modal if game is won
+        victory() {
+            if (this.victory === true) {
+            ctx.font = '72px Georgia';
+            ctx.fillText('You won!', 100, 280);
+            ctx.font = '24px Georgia';
+            ctx.fillText('Hit a bug to play again!', 120, 320);
+            }
+        }
+
+        // Input made by user determines direction of Player
+        handleInput(keyPress) {
+            switch (keyPress) {
+                // left key press moves Player 100 pixels to the left
+                case 'left':
+                    this.update(this.x -= 100);
+                    break;
+                // right key press moves Player 100 pixels to the right
+                case 'left':
+                    this.update(this.x += 100);
+                    break;
+                // pressing the up arrow moves Player 80 pixels up on y axis
+                case 'up':
+                    this.update(this.y -= 80);
+                    break;
+                // pressing the down arrow moves Player 80 pixels down on y axis
+                case 'down':
+                    this.update(this.y += 83);
+                    break;
+                }
+        }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
