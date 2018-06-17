@@ -98,17 +98,18 @@ class Player {
         // Display Player on the screen
         render() {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        };
-
-        // Display victory modal if game is won
-        victory() {
+            // Display victory message if game is won
             if (this.victory === true) {
-            ctx.font = '72px Georgia';
-            ctx.fillText('You won!', 100, 280);
-            ctx.font = '24px Georgia';
-            ctx.fillText('Hit a bug to play again!', 120, 320);
+            ctx.font = '88px Georgia';
+            ctx.fillText('Oh,', 66, 210);
+            ctx.font = '66px Georgia';
+            ctx.fillText('lucky you!', 130, 280);
+            ctx.font = '16px Georgia';
+            ctx.fillText('Now go', 310, 420);
+            ctx.font = '16px Georgia';
+            ctx.fillText('hug a bug!', 325, 436);
             }
-        }
+        };
 
         // Input made by user determines direction of Player
         handleInput(keyPress) {
