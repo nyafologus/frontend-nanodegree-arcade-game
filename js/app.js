@@ -26,22 +26,22 @@ class Enemy {
     // all computers.
     this.x += this.speed * dt;
 
-    // once the Enemy reaches right border of canvas (550), 
-    // reset its position to start again off canvas from left (-100)
+    // once the Enemy reaches right border of canvas (550px), 
+    // reset its position to start again off canvas from left (0px)
     if (this.x > 550) {
-        this.x = -100;
+        this.x = 0;
     }
 
     // Collision detection, if distance in pixels is less than 60 on the x axis,
     // or less than 13 on y axis, reset position of player to default
     // console.log(player.x, player.y, this.x, this.y);
 
-    if (player.x < Math.abs(this.x) + 60 &&
-        player.x + 60 > Math.abs(this.x) &&
-        player.y < Math.abs(this.y) + 13 &&
-        player.y + 13 > Math.abs(this.y)) {
-        player.x = 200;
-        player.y = 380;
+    if (player.x < this.x + 60 &&
+        player.x + 60 > this.x &&
+        player.y < this.y + 13 &&
+        player.y > this.y - 13) {
+            player.x = 200;
+            player.y = 380;
         }
     }
 
@@ -144,7 +144,7 @@ let enemyLocation = [62, 145, 225];
 
 // Generating new enemy Objects with random speed
 for (const location of enemyLocation) {
-    enemy = new Enemy(-180, location, 100 + Math.floor(Math.random() * 200));
+    enemy = new Enemy(0, location, 100 + Math.floor(Math.random() * 200));
     allEnemies.push(enemy);
 };
 
