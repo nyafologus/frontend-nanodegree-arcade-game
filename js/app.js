@@ -34,7 +34,12 @@ class Enemy {
 
     // Collision detection, if distance in pixels is less than 60 on the x axis,
     // or less than 13 on y axis, reset position of player to default
-    if (player.x - this.x <= 60 && player.y - this.y <= 13) {
+    // console.log(player.x, player.y, this.x, this.y);
+
+    if (player.x < Math.abs(this.x) + 60 &&
+        player.x + 60 > Math.abs(this.x) &&
+        player.y < Math.abs(this.y) + 13 &&
+        player.y + 13 > Math.abs(this.y)) {
         player.x = 200;
         player.y = 380;
         }
