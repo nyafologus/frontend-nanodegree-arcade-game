@@ -82,56 +82,59 @@ class Player {
 
         // in case Player reaches the top of canvas, the game is won
         if (this.y < 0) {
-            // Player position defaults
-            this.x = 200;
-            this.y = 380;
-            // Enemies freeze
-            for (const enemy of allEnemies) {
-                enemy.speed = 0;
-            };
-            // Game is won
-            this.victory = true;
-            this.render();
-            };
-        };
-
-        // Display Player on the screen
-        render() {
-            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-            // Display victory message if game is won
-            if (this.victory === true) {
-                ctx.font = '88px Georgia';
-                ctx.fillText('Oh,', 66, 210);
-                ctx.font = '66px Georgia';
-                ctx.fillText('lucky you!', 130, 280);
-                ctx.font = '16px Georgia';
-                ctx.fillText('Now go', 310, 420);
-                ctx.font = '16px Georgia';
-                ctx.fillText('hug a bug!', 325, 436);
-            };
-        };
-
-        // Input made by user determines direction of Player
-        handleInput(keyPress) {
-            switch (keyPress) {
-                // left key press moves Player 100 pixels to the left
-                case 'left':
-                    this.x -= 100;
-                    break;
-                // right key press moves Player 100 pixels to the right
-                case 'right':
-                    this.x += 100;
-                    break;
-                // pressing the up arrow moves Player 80 pixels up on y axis
-                case 'up':
-                    this.y -= 80;
-                    break;
-                // pressing the down arrow moves Player 80 pixels down on y axis
-                case 'down':
-                    this.y += 80;
-                    break;
+            this.y = 0;
+            setTimeout(() => {
+                // Player position defaults
+                this.x = 200;
+                this.y = 380;
+                // Enemies freeze
+                for (const enemy of allEnemies) {
+                    enemy.speed = 0;
                 };
+                // Game is won
+                this.victory = true;
+                this.render();
+            }, 330);
         };
+    };
+
+    // Display Player on the screen
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        // Display victory message if game is won
+        if (this.victory === true) {
+            ctx.font = '88px Georgia';
+            ctx.fillText('Oh,', 66, 210);
+            ctx.font = '66px Georgia';
+            ctx.fillText('lucky you!', 130, 280);
+            ctx.font = '16px Georgia';
+            ctx.fillText('Now go', 310, 420);
+            ctx.font = '16px Georgia';
+            ctx.fillText('hug a bug!', 325, 436);
+        };
+    };
+
+    // Input made by user determines direction of Player
+    handleInput(keyPress) {
+        switch (keyPress) {
+            // left key press moves Player 100 pixels to the left
+            case 'left':
+                this.x -= 100;
+                break;
+            // right key press moves Player 100 pixels to the right
+            case 'right':
+                this.x += 100;
+                break;
+            // pressing the up arrow moves Player 80 pixels up on y axis
+            case 'up':
+                this.y -= 80;
+                break;
+            // pressing the down arrow moves Player 80 pixels down on y axis
+            case 'down':
+                this.y += 80;
+                break;
+            };
+    };
 };
 
 // Now instantiate your objects.
