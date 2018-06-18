@@ -16,7 +16,7 @@ class Enemy {
         this.x = x;
         // Initial position of Enemy on the y axis
         this.y = y;
-    }
+    };
 
     // Update Enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
@@ -30,7 +30,7 @@ class Enemy {
     // reset its position to start again off canvas from left (0px)
     if (this.x > 550) {
         this.x = 0;
-    }
+    };
 
     // Collision detection, if distance in pixels is less than 60 on the x axis,
     // or less than 13 on y axis, reset position of player to default
@@ -42,14 +42,13 @@ class Enemy {
         player.y > this.y - 13) {
             player.x = 200;
             player.y = 380;
-        }
-    }
+        };
+    };
 
     // Draw Enemy on the screen, required method for game
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-
+    };
 };
 
 // Now write your own player class
@@ -60,41 +59,41 @@ class Player {
     constructor(x, y) {
         this.sprite = 'images/char-cat-girl.png';
         this.x = x;
-        this.y = y
-;        this.victory = false;
-    }
+        this.y = y;
+        this.victory = false;
+    };
 
     // Preventing Player to move off canvas
     update(x, y) {
         // in case Player reaches the right side of canvas
         if (this.x > 400) {
             this.x = 400;
-        }
+        };
 
         // in case Player reaches the left side of canvas
         if (this.x < 0) {
             this.x = 0;
-        }
+        };
 
         // in case Player reaches the bottom of canvas
         if (this.y > 400) {
             this.y = 400;
-        }
+        };
 
         // in case Player reaches the top of canvas, the game is won
         if (this.y < 0) {
-                // Player position defaults
-                this.x = 200;
-                this.y = 380;
-                // Enemies freeze
-                for (const enemy of allEnemies) {
-                    enemy.speed = 0;
-                }
-                    // Game is won
-                    this.victory = true;
-                    this.render();
-                }
-            }
+            // Player position defaults
+            this.x = 200;
+            this.y = 380;
+            // Enemies freeze
+            for (const enemy of allEnemies) {
+                enemy.speed = 0;
+            };
+            // Game is won
+            this.victory = true;
+            this.render();
+            };
+        };
 
         // Display Player on the screen
         render() {
@@ -109,7 +108,7 @@ class Player {
                 ctx.fillText('Now go', 310, 420);
                 ctx.font = '16px Georgia';
                 ctx.fillText('hug a bug!', 325, 436);
-            }
+            };
         };
 
         // Input made by user determines direction of Player
@@ -131,9 +130,9 @@ class Player {
                 case 'down':
                     this.y += 80;
                     break;
-                }
-        }
-}
+                };
+        };
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -144,7 +143,7 @@ let enemyLocation = [62, 145, 225];
 
 // Generating new enemy Objects with random speed
 for (const location of enemyLocation) {
-    enemy = new Enemy(0, location, 100 + Math.floor(Math.random() * 200));
+    const enemy = new Enemy(0, location, 100 + Math.floor(Math.random() * 200));
     allEnemies.push(enemy);
 };
 
